@@ -6,5 +6,5 @@ for i in range(0, 9):
         array[j + 1] = array[j]
         array[j] = temp
         j= j - 1
-        print(array)
+        print(array)1
     print(array)
