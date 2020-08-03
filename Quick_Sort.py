@@ -1,27 +1,32 @@
 number = 10
-data = [1, 10, 5, 8, 7, 6, 4, 3, 2, 9]
-def quickSort(*data, start, end): #0, 9
+a = [1, 10, 5, 8, 7, 6, 4, 3, 2, 9]
+def quickSort(a, start, end):
     if start >= end:
-        return;
-    key = start
-    i = start + 1
-    j = end
-    temp = 0
+        return
 
-    while i <= j:
-        while data[i] <= data[key]:
-            i = i + 1
-        while data[j] >= data[key] and j > start:
-            j = j - 1
-        if i > j:
-            data[j], data[key] = data[key], data[j]
+    pivot = start
+    L = start
+    R = end
+
+    while L <= R:
+        while a[L] <= a[pivot]:
+            L = L + 1
+        while a[R] >= a[pivot] and R > start:
+            R = R - 1
+        if L > R:
+            a[R], a[pivot] = a[pivot], a[R]
         else:
-            data[j], data[i] = data[i], data[j]
+            a[R], a[L] = a[L], a[R]
+    quickSort(a, start, R - 1)
+    quickSort(a, L - 1, end)
 
-    quickSort(data, start, j - 1)
-    quickSort(data, j + 1, end)
+
+quickSort(a, 0, number - 1)
+print(a)
 
 
-quickSort(data, 0, number - 1)
+
+
+
 
 
