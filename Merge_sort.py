@@ -1,4 +1,4 @@
-def mergeSort(a):
+'''def mergeSort(a):
     if len(a) <= 1:
         return a
     mid = len(a) // 2
@@ -14,8 +14,6 @@ def mergeSort(a):
         else:
             merged_arr.append(right_arr[j])
             j += 1
-
-
     #1. merged_arr += left_arr[i:]
     while i < len(left_arr):
         merged_arr.append(left_arr[i])
@@ -29,5 +27,62 @@ def mergeSort(a):
 
 array = [6, 8, 3, 9, 10, 1, 2, 4]
 print(mergeSort(array))
+'''
+
+import sys
+def mergesort(array):
+    if len(array) <= 1:
+        return array
+
+    mid = len(array) // 2
+    left = mergesort(array[:mid])
+    right = mergesort(array[mid:])
+    i = j = 0
+    merge = []
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            merge.append(left[i])
+            i += 1
+        else:
+            merge.append(right[j])
+            j += 1
+    while i < len(left):
+        merge.append(left[i])
+        i += 1
+    while j < len(right):
+        merge.append(right[j])
+        j += 1
+    return merge
+a = []
+N = int(sys.stdin.readline())
+for i in range(0 , N):
+    a.append(int(sys.stdin.readline()))
+
+a = mergesort(a)
+for i in range(0, N):
+    print(a[i])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
