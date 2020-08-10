@@ -15,7 +15,7 @@ def quickSort(a, start, end):
             R = R - 1
 
         if L > R:
-            a[L], a[R], a[R], a[L]
+            a[L], a[R] = a[R], a[L]
         else:
             a[pivot], a[R] = a[R], a[pivot]
 

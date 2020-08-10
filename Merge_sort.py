@@ -29,10 +29,14 @@ array = [6, 8, 3, 9, 10, 1, 2, 4]
 print(mergeSort(array))
 '''
 
+
+
+
 def mergesort(a):
-    if len(a) <= 1:
+    if len(a) == 1:
         return a
-    mid = len(a) // 2
+
+    mid = len(a) // 2 # 중간 값
     left = mergesort(a[:mid])
     right = mergesort(a[mid:])
 
@@ -45,7 +49,6 @@ def mergesort(a):
         else:
             merge.append(right[j])
             j += 1
-
     while i < len(left):
         merge.append(left[i])
         i += 1
@@ -53,5 +56,6 @@ def mergesort(a):
         merge.append(right[j])
         j += 1
     return merge
+
 array = [6, 8, 3, 9, 10, 1, 2, 4]
 print(mergesort(array))
